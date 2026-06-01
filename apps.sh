@@ -3,7 +3,7 @@
 echo "📦 Installing apps..."
 
 # VS Code
-wget -O code.deb https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+wget -O code.deb "https://update.code.visualstudio.com/latest/linux-deb-x64/stable"
 sudo apt install -y ./code.deb
 rm code.deb
 
