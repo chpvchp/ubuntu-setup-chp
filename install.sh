@@ -1,14 +1,25 @@
 #!/bin/bash
-set -e
 
 echo "🚀 Ubuntu Bootstrap Starting..."
 
+run() {
+  echo "▶ Running: $1"
+  bash -c "$1"
+
+  if [ $? -ne 0 ]; then
+    echo "❌ FAILED: $1"
+  else
+    echo "✅ OK: $1"
+  fi
+}
+
 sudo apt update && sudo apt upgrade -y
 
-bash system.sh
-bash apps.sh
-bash dev.sh
-bash ui.sh
-bash gnome.sh
+run "bash system.sh"
+run "bash apps.sh"
+run "bash dev.sh"
+run "bash ui.sh"
+run "bash gnome.sh"
+run "bash background.sh"
 
 echo "✅ Done. Please reboot."
